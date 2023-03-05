@@ -1,9 +1,10 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-
+const galleryEl = document.querySelector('.gallery');
 function addGalleryEL() {
-  const result = galleryItems.map(el => {
-    return `<div class="gallery__item">
+  const result = galleryItems
+    .map(el => {
+      return `<div class="gallery__item">
       <a class="gallery__link" href="${el.original}">
         <img
           class="gallery__image"
@@ -12,20 +13,19 @@ function addGalleryEL() {
           alt="${el.description}"
         />
       </a>
-    </div>;`;
-  });
-  return result;
+    </div>`;
+    })
+    .join(' ');
+  galleryEl.insertAdjacentHTML('afterbegin', result);
 }
+
+function handleImgClick(evt) {
+  if (evt.target.nodeName !== 'IMG') {
+    return;
+  }
+  console.log(evt.target.nodeName);
+  evt.preventDefault();
+  return;
+}
+galleryEl.addEventListener('click', handleImgClick);
 console.log(addGalleryEL());
-{
-  /* <div class="gallery__item">
-  <a class="gallery__link" href="large-image.jpg">
-    <img
-      class="gallery__image"
-      src="small-image.jpg"
-      data-source="large-image.jpg"
-      alt="Image description"
-    />
-  </a>
-</div>; */
-}
