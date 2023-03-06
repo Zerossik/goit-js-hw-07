@@ -1,5 +1,5 @@
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
+
 const galleryEl = document.querySelector('.gallery');
 function addGalleryEL() {
   const result = galleryItems
@@ -18,14 +18,12 @@ function addGalleryEL() {
     .join(' ');
   galleryEl.insertAdjacentHTML('afterbegin', result);
 }
-
 function handleImgClick(evt) {
   if (evt.target.nodeName !== 'IMG') {
     return;
   }
   evt.preventDefault();
   createModalWindow(evt);
-
   return;
 }
 
@@ -33,5 +31,7 @@ function createModalWindow(evt) {
   const instance = basicLightbox.create(`<img src="${evt.target.dataset.source}">`);
   instance.show();
 }
+
 galleryEl.addEventListener('click', handleImgClick);
+// galleryEl.addEventListener('keydown', deleteModalWindow);
 addGalleryEL();
