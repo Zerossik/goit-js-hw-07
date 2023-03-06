@@ -29,13 +29,9 @@ function handleImgClick(evt) {
   return;
 }
 
-function createModalWindow() {
+function createModalWindow(evt) {
   const instance = basicLightbox.create(`<img src="${evt.target.dataset.source}">`);
   instance.show();
 }
 galleryEl.addEventListener('click', handleImgClick);
 addGalleryEL();
-
-// const instance = basicLightbox.create(`<img src="${evt.target.dataset.source}">`);
-// console.log(evt.target.dataset.source);
-// instance.show();
