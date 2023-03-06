@@ -23,9 +23,19 @@ function handleImgClick(evt) {
   if (evt.target.nodeName !== 'IMG') {
     return;
   }
-  console.log(evt.target.nodeName);
   evt.preventDefault();
+  createModalWindow(evt);
+
   return;
 }
+
+function createModalWindow() {
+  const instance = basicLightbox.create(`<img src="${evt.target.dataset.source}">`);
+  instance.show();
+}
 galleryEl.addEventListener('click', handleImgClick);
-console.log(addGalleryEL());
+addGalleryEL();
+
+// const instance = basicLightbox.create(`<img src="${evt.target.dataset.source}">`);
+// console.log(evt.target.dataset.source);
+// instance.show();
