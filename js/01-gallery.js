@@ -19,10 +19,12 @@ function addGalleryEL() {
   galleryEl.insertAdjacentHTML('afterbegin', result);
 }
 function handleImgClick(evt) {
+  evt.preventDefault();
+
   if (evt.target.nodeName !== 'IMG') {
     return;
   }
-  evt.preventDefault();
+
   createModalWindow(evt);
   return;
 }
@@ -32,6 +34,13 @@ function createModalWindow(evt) {
   instance.show();
 }
 
+// function closeModalWindow(evt) {
+//   console.log(evt.code);
+//   if (evt.code !== 'Escape') {
+//     return;
+//   }
+//   instance.close();
+// }
 galleryEl.addEventListener('click', handleImgClick);
-// galleryEl.addEventListener('keydown', deleteModalWindow);
+// window.addEventListener('keydown', closeModalWindow);
 addGalleryEL();
